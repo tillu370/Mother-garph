@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
   Star,
@@ -8,9 +8,18 @@ import {
   ChevronDown,
   Info,
 } from 'lucide-react';
-import { mockEntities } from '../lib/mockData';
 import ScoreBadge from '../components/ScoreBadge';
 import TypeBadge from '../components/TypeBadge';
+
+// The shape coming from the actual Python backend
+interface BackendEntity {
+  name: string;
+  type: string;
+  district: string;
+  state: string;
+  relevance_score: number;
+  priority_score: number;
+}
 
 type SortKey = 'priority_score' | 'relevance_score' | 'name';
 type SortDir = 'asc' | 'desc';
@@ -30,13 +39,35 @@ function ScoreBar({ value, color }: { value: number; color: string }) {
 }
 
 export default function PriorityTargets() {
+  const [entities, setEntities] = useState<BackendEntity[]>([]);
+  const [loading, setLoading] = useState(true);
+
   const [sortKey, setSortKey] = useState<SortKey>('priority_score');
   const [sortDir, setSortDir] = useState<SortDir>('desc');
   const [showFormula, setShowFormula] = useState(false);
 
-  const sorted = [...mockEntities].sort((a, b) => {
-    const va = a[sortKey] as string | number;
-    const vb = b[sortKey] as string | number;
+  useEffect(() => {
+    fetch('http://localhost:8000/priority-ranking')
+      .then((res) => res.json())
+      .then((data: BackendEntity[]) => {
+        // Multiply 0-1 float scores by 100 and round them
+        const formattedData = data.map((item) => ({
+          ...item,
+          priority_score: Math.round(item.priority_score * 100),
+          relevance_score: Math.round(item.relevance_score * 100),
+        }));
+        setEntities(formattedData);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error('Failed to fetch priority ranking:', err);
+        setLoading(false);
+      });
+  }, []);
+
+  const sorted = [...entities].sort((a, b) => {
+    const va = a[sortKey];
+    const vb = b[sortKey];
     if (typeof va === 'string') return sortDir === 'asc' ? va.localeCompare(vb as string) : (vb as string).localeCompare(va);
     return sortDir === 'asc' ? (va as number) - (vb as number) : (vb as number) - (va as number);
   });
@@ -54,6 +85,15 @@ export default function PriorityTargets() {
       <ChevronUp size={12} style={{ color: '#0d9488' }} />
     );
   };
+
+  if (loading) {
+    return (
+      <div className="flex flex-col items-center justify-center p-20 text-slate-500">
+        <div className="w-8 h-8 rounded-full border-2 border-teal-500 border-t-transparent animate-spin mb-4" />
+        <p>Loading AI Priority Targets...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-5">
@@ -148,7 +188,7 @@ export default function PriorityTargets() {
             <tbody>
               {sorted.map((entity, index) => (
                 <motion.tr
-                  key={entity.id}
+                  key={index} // Fallback to index if API doesn't have an ID
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.04 }}
