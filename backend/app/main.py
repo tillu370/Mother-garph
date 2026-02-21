@@ -6,6 +6,11 @@ from sqlalchemy import text
 from pydantic import BaseModel
 from typing import Optional
 from dotenv import load_dotenv
+import pandas as pd
+
+# Files are in app/data relative to the backend root where uvicorn runs
+NGO_SCORED = pd.read_csv("app/data/ngos_scored.csv")
+FAC_SCORED = pd.read_csv("app/data/facilities_scored.csv")
 
 load_dotenv()
 
@@ -298,10 +303,35 @@ def get_entity(entity_id: int, db: Session = Depends(get_db)):
 # ─── Priority Ranking ─────────────────────────────────────────────────────────
 
 @app.get("/priority-ranking")
-def priority_ranking(db: Session = Depends(get_db)):
-    """Return entities sorted by composite priority score."""
-    entities = db.query(Entity).order_by(Entity.priority_score.desc()).all()
-    return entities
+def get_priority_ranking():
+    """
+    Returns a unified list of top entities (NGOs + Facilities)
+    sorted by composite priority score.
+    """
+    rows = []
+
+    for _, r in NGO_SCORED.iterrows():
+        rows.append({
+            "name": str(r.get("name", "")),
+            "type": "NGO",
+            "district": str(r.get("district", "")),
+            "state": str(r.get("state", "")),
+            "relevancescore": float(r.get("capability_score", 0.0)),
+            "priorityscore": float(r.get("capability_score", 0.0)),
+        })
+
+    for _, r in FAC_SCORED.iterrows():
+        rows.append({
+            "name": str(r.get("name", "")),
+            "type": str(r.get("type", "Facility")),
+            "district": str(r.get("district", "")),
+            "state": "Andhra Pradesh",  # simple default
+            "relevancescore": float(r.get("capability_score", 0.0)),
+            "priorityscore": float(r.get("capability_score", 0.0)),
+        })
+
+    rows = sorted(rows, key=lambda r: r["priorityscore"], reverse=True)[:50]
+    return rows
 
 
 # ─── Email Generation ─────────────────────────────────────────────────────────
@@ -385,3 +415,33 @@ def seed_data(db: Session = Depends(get_db)):
         "ngos": len(SEED_NGOS),
         "funders": len(SEED_FUNDERS),
     }
+@app.get("/priority-ranking")
+def get_priority_ranking():
+    """
+    Returns a unified list of top entities (NGOs + Facilities)
+    sorted by composite priority score.
+    """
+    rows = []
+
+    for _, r in NGO_SCORED.iterrows():
+        rows.append({
+            "name": str(r.get("name", "")),
+            "type": "NGO",
+            "district": str(r.get("district", "")),
+            "state": str(r.get("state", "")),
+            "relevance_score": float(r.get("capability_score", 0.0)),
+            "priority_score": float(r.get("capability_score", 0.0)),
+        })
+
+    for _, r in FAC_SCORED.iterrows():
+        rows.append({
+            "name": str(r.get("name", "")),
+            "type": str(r.get("type", "Facility")),
+            "district": str(r.get("district", "")),
+            "state": "Andhra Pradesh",  # simple default
+            "relevance_score": float(r.get("capability_score", 0.0)),
+            "priority_score": float(r.get("capability_score", 0.0)),
+        })
+
+    rows = sorted(rows, key=lambda r: r["priority_score"], reverse=True)[:50]
+    return rows

@@ -17,11 +17,11 @@ interface BackendEntity {
   type: string;
   district: string;
   state: string;
-  relevance_score: number;
-  priority_score: number;
+  relevancescore: number;
+  priorityscore: number;
 }
 
-type SortKey = 'priority_score' | 'relevance_score' | 'name';
+type SortKey = 'priorityscore' | 'relevancescore' | 'name';
 type SortDir = 'asc' | 'desc';
 
 function ScoreBar({ value, color }: { value: number; color: string }) {
@@ -42,7 +42,7 @@ export default function PriorityTargets() {
   const [entities, setEntities] = useState<BackendEntity[]>([]);
   const [loading, setLoading] = useState(true);
 
-  const [sortKey, setSortKey] = useState<SortKey>('priority_score');
+  const [sortKey, setSortKey] = useState<SortKey>('priorityscore');
   const [sortDir, setSortDir] = useState<SortDir>('desc');
   const [showFormula, setShowFormula] = useState(false);
 
@@ -53,8 +53,8 @@ export default function PriorityTargets() {
         // Multiply 0-1 float scores by 100 and round them
         const formattedData = data.map((item) => ({
           ...item,
-          priority_score: Math.round(item.priority_score * 100),
-          relevance_score: Math.round(item.relevance_score * 100),
+          priorityscore: Math.round(item.priorityscore * 100),
+          relevancescore: Math.round(item.relevancescore * 100),
         }));
         setEntities(formattedData);
         setLoading(false);
@@ -127,7 +127,7 @@ export default function PriorityTargets() {
             className="font-mono text-sm p-3 rounded-lg mb-3"
             style={{ background: 'white', border: '1px solid #99f6e4', color: '#0f172a' }}
           >
-            priority_score = (0.5 × relevance_score) + (0.3 × population_score) + (0.2 × partnership_score)
+            priorityscore = (0.5 × relevancescore) + (0.3 × population_score) + (0.2 × partnership_score)
           </div>
           <div className="grid grid-cols-3 gap-3">
             {[
@@ -147,9 +147,9 @@ export default function PriorityTargets() {
       {/* Stats Row */}
       <div className="grid grid-cols-3 gap-3">
         {[
-          { label: 'Score ≥ 90', count: sorted.filter((e) => e.priority_score >= 90).length, color: '#059669' },
-          { label: 'Score 75–89', count: sorted.filter((e) => e.priority_score >= 75 && e.priority_score < 90).length, color: '#0d9488' },
-          { label: 'Score < 75', count: sorted.filter((e) => e.priority_score < 75).length, color: '#d97706' },
+          { label: 'Score ≥ 90', count: sorted.filter((e) => e.priorityscore >= 90).length, color: '#059669' },
+          { label: 'Score 75–89', count: sorted.filter((e) => e.priorityscore >= 75 && e.priorityscore < 90).length, color: '#0d9488' },
+          { label: 'Score < 75', count: sorted.filter((e) => e.priorityscore < 75).length, color: '#d97706' },
         ].map((item) => (
           <div key={item.label} className="card p-4 text-center">
             <div className="text-2xl font-bold" style={{ color: item.color }}>{item.count}</div>
@@ -173,13 +173,13 @@ export default function PriorityTargets() {
                 <th className="text-left px-5 py-3 text-xs font-semibold" style={{ color: '#64748b' }}>Type</th>
                 <th className="text-left px-5 py-3 text-xs font-semibold" style={{ color: '#64748b' }}>District</th>
                 <th className="text-left px-5 py-3 text-xs font-semibold" style={{ color: '#64748b' }}>
-                  <button onClick={() => handleSort('relevance_score')} className="flex items-center gap-1">
-                    Relevance <SortIcon col="relevance_score" />
+                  <button onClick={() => handleSort('relevancescore')} className="flex items-center gap-1">
+                    Relevance <SortIcon col="relevancescore" />
                   </button>
                 </th>
                 <th className="text-left px-5 py-3 text-xs font-semibold" style={{ color: '#64748b' }}>
-                  <button onClick={() => handleSort('priority_score')} className="flex items-center gap-1">
-                    Priority <SortIcon col="priority_score" />
+                  <button onClick={() => handleSort('priorityscore')} className="flex items-center gap-1">
+                    Priority <SortIcon col="priorityscore" />
                   </button>
                 </th>
                 <th className="text-left px-5 py-3 text-xs font-semibold" style={{ color: '#64748b' }}>Actions</th>
@@ -221,11 +221,11 @@ export default function PriorityTargets() {
                   </td>
                   <td className="px-5 py-4">
                     <div className="w-32">
-                      <ScoreBar value={entity.relevance_score} color="#0d9488" />
+                      <ScoreBar value={entity.relevancescore} color="#0d9488" />
                     </div>
                   </td>
                   <td className="px-5 py-4">
-                    <ScoreBadge score={entity.priority_score} size="sm" showLabel />
+                    <ScoreBadge score={entity.priorityscore} size="sm" showLabel />
                   </td>
                   <td className="px-5 py-4">
                     <button
