@@ -47,14 +47,20 @@ export default function PriorityTargets() {
   const [showFormula, setShowFormula] = useState(false);
 
   useEffect(() => {
+    // Helper to intelligently format scores from either 0-1 or 0-100 range
+    const formatScore = (raw: number) => {
+      if (raw <= 0) return 0;
+      const score = raw > 1 ? Math.round(raw) : Math.round(raw * 100);
+      return Math.min(score, 100);
+    };
+
     fetch('http://localhost:8000/priority-ranking')
       .then((res) => res.json())
       .then((data: BackendEntity[]) => {
-        // Multiply 0-1 float scores by 100 and round them
         const formattedData = data.map((item) => ({
           ...item,
-          priorityscore: Math.round(item.priorityscore * 100),
-          relevancescore: Math.round(item.relevancescore * 100),
+          priorityscore: formatScore(item.priorityscore),
+          relevancescore: formatScore(item.relevancescore),
         }));
         setEntities(formattedData);
         setLoading(false);
