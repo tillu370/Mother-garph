@@ -119,14 +119,15 @@ govt@carereach.ai`,
 };
 
 const allOrgs = [
-  ...mockEntities.map((e) => ({ name: e.name, type: e.type })),
-  ...mockNGOs.map((n) => ({ name: n.name, type: 'NGO' })),
-  ...mockFunders.map((f) => ({ name: f.name, type: f.type })),
+  ...mockEntities.map((e) => ({ name: e.name, type: e.type, email: e.email })),
+  ...mockNGOs.map((n) => ({ name: n.name, type: 'NGO', email: n.email })),
+  ...mockFunders.map((f) => ({ name: f.name, type: f.type, email: f.email })),
 ];
 
 export default function OutreachGenerator() {
   const [selectedOrg, setSelectedOrg] = useState('');
   const [selectedType, setSelectedType] = useState('');
+  const [selectedEmail, setSelectedEmail] = useState('');
   const [generating, setGenerating] = useState(false);
   const [email, setEmail] = useState<{ subject: string; body: string } | null>(null);
   const [copied, setCopied] = useState(false);
@@ -138,7 +139,7 @@ export default function OutreachGenerator() {
     const params = new URLSearchParams(window.location.search);
     const org = params.get('org');
     const type = params.get('type');
-    if (org) setSelectedOrg(org);
+    if (org) handleOrgSelect(org);
     if (type) setSelectedType(type);
   }, []);
 
@@ -180,7 +181,12 @@ export default function OutreachGenerator() {
   const handleOrgSelect = (name: string) => {
     setSelectedOrg(name);
     const org = allOrgs.find((o) => o.name === name);
-    if (org) setSelectedType(org.type);
+    if (org) {
+      setSelectedType(org.type);
+      setSelectedEmail(org.email || '');
+    } else {
+      setSelectedEmail('');
+    }
   };
 
   return (
@@ -389,7 +395,7 @@ export default function OutreachGenerator() {
                 <button
                   className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-white"
                   style={{ background: '#0d9488' }}
-                  onClick={() => window.location.href = `mailto:?subject=${encodeURIComponent(email.subject)}&body=${encodeURIComponent(editing ? editedBody : email.body)}`}
+                  onClick={() => window.location.href = `mailto:${selectedEmail}?subject=${encodeURIComponent(email.subject)}&body=${encodeURIComponent(editing ? editedBody : email.body)}`}
                 >
                   <Send size={11} /> Open in Mail
                 </button>

@@ -32,6 +32,7 @@ export interface NGO {
   state: string;
   focus_areas: string[];
   website?: string;
+  email?: string;
   description: string;
   alignment_score: number;
 }
@@ -44,6 +45,7 @@ export interface Funder {
   grant_size?: string;
   geography: string;
   website?: string;
+  email?: string;
   description: string;
   relevance_score: number;
 }
