@@ -53,7 +53,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
           <div>
             <div className="font-bold text-sm" style={{ color: '#0f172a', letterSpacing: '-0.01em' }}>
-              MotherSource AI
+              Care Reach AI
             </div>
             <div className="text-xs" style={{ color: '#94a3b8' }}>Maternal Health Platform</div>
           </div>
@@ -130,7 +130,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
           <div className="flex-1">
             <h1 className="text-base font-semibold" style={{ color: '#0f172a' }}>
-              {navItems.find((n) => n.path === location.pathname)?.label || 'MotherSource AI'}
+              {navItems.find((n) => n.path === location.pathname)?.label || 'Care Reach AI'}
             </h1>
           </div>
 

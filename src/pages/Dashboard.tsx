@@ -75,7 +75,7 @@ export default function Dashboard() {
         <div className="relative">
           <div className="flex items-center gap-2 mb-2">
             <Heart size={20} fill="white" />
-            <span className="text-sm font-medium opacity-90">MotherSource AI Platform</span>
+            <span className="text-sm font-medium opacity-90">Care Reach AI Platform</span>
           </div>
           <h2 className="text-2xl font-bold mb-1">Maternal Health Intelligence</h2>
           <p className="opacity-80 text-sm">

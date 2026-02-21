@@ -18,10 +18,10 @@ import TypeBadge from '../components/TypeBadge';
 
 const emailTemplates: Record<string, { subject: string; body: string }> = {
   'Private Hospital': {
-    subject: 'Partnership Opportunity: Maternal Health Outreach Program – MotherSource AI',
+    subject: 'Partnership Opportunity: Maternal Health Outreach Program – Care Reach AI',
     body: `Dear [Hospital Name] Team,
 
-I hope this message finds you well. I am writing on behalf of MotherSource AI, a maternal health intelligence platform focused on improving maternal outcomes across Andhra Pradesh and Telangana.
+I hope this message finds you well. I am writing on behalf of Care Reach AI, a maternal health intelligence platform focused on improving maternal outcomes across Andhra Pradesh and Telangana.
 
 We have identified [Hospital Name] as a leading healthcare institution with exceptional maternal care capabilities in [District]. Your commitment to women's health aligns perfectly with our mission to reduce maternal mortality in the region.
 
@@ -36,14 +36,14 @@ Our platform currently works with 47+ healthcare entities across AP and Telangan
 Would you be available for a 30-minute call this week to discuss this opportunity further?
 
 Warm regards,
-MotherSource AI Team
-maternal@mothersource.ai | www.mothersource.ai`,
+Care Reach AI Team
+maternal@carereach.ai | www.carereach.ai`,
   },
   NGO: {
-    subject: 'Collaboration Opportunity: Maternal Health Program Partnership – MotherSource AI',
+    subject: 'Collaboration Opportunity: Maternal Health Program Partnership – Care Reach AI',
     body: `Dear [Organization Name] Team,
 
-Greetings from MotherSource AI!
+Greetings from Care Reach AI!
 
 We are reaching out to explore a meaningful collaboration with [Organization Name] on maternal health initiatives across Andhra Pradesh and Telangana.
 
@@ -60,8 +60,8 @@ We have successfully matched NGOs with maternal health programs resulting in 40%
 Let's schedule a call to discuss how we can work together.
 
 With warm regards,
-MotherSource AI Partnership Team
-partners@mothersource.ai`,
+Care Reach AI Partnership Team
+partners@carereach.ai`,
   },
   Funder: {
     subject: 'Grant Proposal: AI-Powered Maternal Health Outreach – AP & Telangana',
@@ -69,7 +69,7 @@ partners@mothersource.ai`,
 
 I am writing to present an exciting funding opportunity in maternal health innovation for Andhra Pradesh and Telangana.
 
-MotherSource AI is an AI-powered maternal health intelligence platform that helps organizations discover outreach channels, identify NGO partners, and connect with funding opportunities — specifically focused on reducing maternal mortality in AP and Telangana.
+Care Reach AI is an AI-powered maternal health intelligence platform that helps organizations discover outreach channels, identify NGO partners, and connect with funding opportunities — specifically focused on reducing maternal mortality in AP and Telangana.
 
 Project Overview:
 • Scope: 13 districts in AP + 33 districts in Telangana
@@ -90,14 +90,14 @@ We would welcome the opportunity to present a full proposal. Could we schedule a
 Thank you for your consideration.
 
 Sincerely,
-MotherSource AI Team
-grants@mothersource.ai | www.mothersource.ai`,
+Care Reach AI Team
+grants@carereach.ai | www.carereach.ai`,
   },
   'Government Hospital': {
-    subject: 'Digital Health Partnership: Maternal Health Intelligence Platform – MotherSource AI',
+    subject: 'Digital Health Partnership: Maternal Health Intelligence Platform – Care Reach AI',
     body: `Dear Director/Medical Superintendent,
 
-I am writing to introduce MotherSource AI, a maternal health intelligence platform designed to support government health institutions in Andhra Pradesh and Telangana.
+I am writing to introduce Care Reach AI, a maternal health intelligence platform designed to support government health institutions in Andhra Pradesh and Telangana.
 
 [Hospital Name] has been identified as a critical node in the maternal health ecosystem of [District]. We would like to offer our platform to support your maternal health programs at no cost during our pilot phase.
 
@@ -113,8 +113,8 @@ We are committed to supporting the government's goal of reducing maternal mortal
 We would be honored to present our platform to your team at your convenience.
 
 Respectfully,
-MotherSource AI Team
-govt@mothersource.ai`,
+Care Reach AI Team
+govt@carereach.ai`,
   },
 };
 
