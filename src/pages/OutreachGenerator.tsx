@@ -389,7 +389,7 @@ export default function OutreachGenerator() {
                 <button
                   className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-white"
                   style={{ background: '#0d9488' }}
-                  onClick={() => window.open(`mailto:?subject=${encodeURIComponent(email.subject)}&body=${encodeURIComponent(editing ? editedBody : email.body)}`)}
+                  onClick={() => window.location.href = `mailto:?subject=${encodeURIComponent(email.subject)}&body=${encodeURIComponent(editing ? editedBody : email.body)}`}
                 >
                   <Send size={11} /> Open in Mail
                 </button>
