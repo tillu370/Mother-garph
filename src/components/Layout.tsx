@@ -14,7 +14,8 @@ import {
 } from 'lucide-react';
 
 const navItems = [
-  { path: '/', label: 'Dashboard', icon: LayoutDashboard },
+  { path: '/', label: 'B2B Analytics', icon: LayoutDashboard },
+  { path: '/mother-portal', label: 'Mother Portal (New)', icon: Heart },
   { path: '/onboarding-finder', label: 'Onboarding Finder', icon: Search },
   { path: '/ngo-intelligence', label: 'NGO Intelligence', icon: Users },
   { path: '/funding-scout', label: 'Funding Scout', icon: DollarSign },
@@ -38,9 +39,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       {/* Sidebar */}
       <aside
-        className={`fixed inset-y-0 left-0 z-30 flex flex-col w-64 transition-transform duration-300 lg:static lg:translate-x-0 ${
-          sidebarOpen ? 'translate-x-0' : '-translate-x-full'
-        }`}
+        className={`fixed inset-y-0 left-0 z-30 flex flex-col w-64 transition-transform duration-300 lg:static lg:translate-x-0 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'
+          }`}
         style={{ background: 'white', borderRight: '1px solid #e2e8f0' }}
       >
         {/* Logo */}
