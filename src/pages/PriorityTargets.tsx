@@ -48,10 +48,11 @@ export default function PriorityTargets() {
 
   useEffect(() => {
     // Helper to intelligently format scores from either 0-1 or 0-100 range
+    // Preserves 1 decimal place for real ML variance (e.g. 84.3)
     const formatScore = (raw: number) => {
       if (raw <= 0) return 0;
-      const score = raw > 1 ? Math.round(raw) : Math.round(raw * 100);
-      return Math.min(score, 100);
+      const score = raw > 1 ? raw : raw * 100;
+      return Math.min(Math.round(score * 10) / 10, 100);
     };
 
     fetch('http://localhost:8000/priority-ranking')

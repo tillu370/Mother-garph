@@ -386,25 +386,23 @@ def seed_data(db: Session = Depends(get_db)):
 def get_priority_ranking():
     """
     Returns a unified list of top entities (NGOs + Facilities)
-    sorted by composite priority score.
+    sorted by composite priority score using RAW ML model outputs.
     """
-    import zlib
     rows = []
 
-    def get_varied_score(name, raw_val):
-        raw = float(raw_val)
-        # If score is already varied (not 0, 1, or 100), keep it
-        if 0.0 < raw < 1.0 or 1.0 < raw < 100.0:
-            return raw if raw > 1.0 else raw * 100
-        
-        # Determine deterministic variability based on name
-        # Use CRC32 for stable result across Python restarts
-        seed = zlib.crc32(name.encode('utf-8'))
-        return 75.0 + (seed % 24)  # Results in 75-98 spread
+    def get_real_score(raw_val):
+        try:
+            raw = float(raw_val)
+            # If internal model output is 0-1 range, scale it. 
+            # Otherwise, use the raw number (e.g. 70.4, 95.2).
+            score = raw * 100 if 0.0 < raw <= 1.0 else raw
+            return round(float(score), 1)
+        except (ValueError, TypeError):
+            return 0.0
 
     for _, r in NGO_SCORED.iterrows():
         name = str(r.get("name", "Unknown NGO"))
-        score = get_varied_score(name, r.get("capability_score", 0.0))
+        score = get_real_score(r.get("capability_score", 0.0))
         rows.append({
             "name": name,
             "type": "NGO",
@@ -416,7 +414,7 @@ def get_priority_ranking():
 
     for _, r in FAC_SCORED.iterrows():
         name = str(r.get("name", "Unknown Facility"))
-        score = get_varied_score(name, r.get("capability_score", 0.0))
+        score = get_real_score(r.get("capability_score", 0.0))
         rows.append({
             "name": name,
             "type": str(r.get("type", "Facility")),
@@ -426,5 +424,13 @@ def get_priority_ranking():
             "priorityscore": score,
         })
 
+    # Sort and take top 50
     rows = sorted(rows, key=lambda r: r["priorityscore"], reverse=True)[:50]
+    
+    # Terminal Logging for verification (Top 5 real scores)
+    print("\n--- VERIFYING REAL ML SCORES ---")
+    for i, row in enumerate(rows[:5]):
+        print(f"Rank {i+1}: {row['name']} -> Score: {row['priorityscore']}")
+    print("--------------------------------\n")
+
     return rows
