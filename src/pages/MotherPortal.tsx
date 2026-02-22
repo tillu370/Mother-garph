@@ -50,7 +50,8 @@ export default function MotherPortal() {
                     "Due date is within active funding timeline"
                 ],
                 distance_km: 3.2,
-                safety_rating: 4.8
+                safety_rating: 4.8,
+                eligibility_status: 'Qualified'
             });
             setShowResults(true);
         } finally {
