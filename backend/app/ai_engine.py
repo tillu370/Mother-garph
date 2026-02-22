@@ -185,3 +185,66 @@ def check_duplicate(new_embedding: list[float], existing_embeddings: list[tuple]
         if sim > threshold:
             return entity_id
     return None
+
+
+def match_mother_to_hospital(mother_details: dict, facilities: list[dict], ngos: list[dict], district_context: list[dict]) -> dict:
+    """
+    Use AI to match a mother to the best hospital and NGO program using rich CSV data and district context.
+    """
+    prompt = f"""You are a "Maternal Care Integration Specialist" for MotherSource AI. 
+Your goal is to match a mother to the absolute best healthcare facility and provided NGO support using high-precision data.
+
+MOTHER DETAILS:
+- Name: {mother_details.get('name')}
+- Pincode: {mother_details.get('pincode')}
+- Yearly Income: {mother_details.get('income')}
+- Expected Due Date: {mother_details.get('dueDate')}
+
+DATASET (FACILITIES):
+{json.dumps(facilities, indent=2)}
+
+DATASET (SUPPORTING NGOS):
+{json.dumps(ngos, indent=2)}
+
+REGIONAL CONTEXT (DISTRICTS):
+{json.dumps(district_context, indent=2)}
+
+TASK:
+1. CHECK ELIGIBILITY: Analyze 'Yearly Income'. 
+   - 'Below 1 Lakh' & '1–2 Lakhs': High eligibility for all NGO programs. Status: 'Qualified'.
+   - '2–3 Lakhs': Partial eligibility. Some programs may require co-pay. Status: 'Partially Qualified'.
+   - 'Above 3 Lakhs': Low eligibility for free NGO funding. Status: 'Not Eligible' for full funding, recommend 'Self-Pay' or 'Government Insurance'.
+2. IDENTIFY THE BEST FACILITY: Analyze 'capability_score', 'services_text', 'beds', and 'district'. Prioritize facilities with high scores and specialized services like NICU or emergency obstetric care.
+3. IDENTIFY THE BEST NGO: Match an NGO whose 'focus_areas' and 'description' align with the mother's needs.
+4. CALCULATE MATCH SCORE: A composite score (0-100) reflecting the quality of the hospital match and the availability of NGO support. If income is 'Above 3 Lakhs', the matching score for NGO programs should be lower.
+5. GENERATE REASONING: Provide 3 high-precision reasons citing specific data points from the datasets.
+6. ENRICH RESPONSE: Include specific metrics like bed counts and specialized services.
+
+RETURN JSON OBJECT ONLY:
+{{
+  "hospital_name": "<name of selected facility>",
+  "match_score": <integer>,
+  "program_name": "<name of selected NGO program or 'Self-Pay / Govt Insurance'>",
+  "eligibility_status": "<Qualified | Partially Qualified | Not Eligible>",
+  "reasoning": [
+    "<Data-driven Reason 1>",
+    "<Data-driven Reason 2>",
+    "<Data-driven Reason 3>"
+  ],
+  "distance_km": <estimated float based on district match, 1.0-5.0 if same district, 5.0-15.0 if different>,
+  "safety_rating": <float based on capability_score: e.g., 4.7 if score > 90, 4.5 if score > 80, etc.>,
+  "beds_count": <integer from facility data>,
+  "specialized_services": ["service 1", "service 2"],
+  "district_impact": "<Short string highlighting program impact in the relevant district using district context stats>"
+}}
+
+IMPORTANT: Return ONLY the JSON. Be precise. Use the REAL names and data from the provided datasets."""
+
+    response = client.chat.completions.create(
+        model="gpt-4",
+        messages=[{"role": "user", "content": prompt}],
+        temperature=0.2,
+        max_tokens=800,
+    )
+
+    return json.loads(response.choices[0].message.content.strip())

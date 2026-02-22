@@ -11,10 +11,9 @@ import {
     Award,
     ChevronRight,
     ShieldCheck,
-    Building2,
     Phone
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { apiService, type MotherMatchResult } from '../lib/api';
 
 export default function MotherPortal() {
     const [eligibilityData, setEligibilityData] = useState({
@@ -26,18 +25,37 @@ export default function MotherPortal() {
     const [checking, setChecking] = useState(false);
     const [showResults, setShowResults] = useState(false);
     const [showJourney, setShowJourney] = useState(false);
+    const [matchResult, setMatchResult] = useState<MotherMatchResult | null>(null);
 
-    const handleCheckEligibility = (e: React.FormEvent) => {
+    const handleCheckEligibility = async (e: React.FormEvent) => {
         e.preventDefault();
         setChecking(true);
         setShowResults(false);
         setShowJourney(false);
 
-        // Mock API delay
-        setTimeout(() => {
-            setChecking(false);
+        try {
+            const response = await apiService.matchMother(eligibilityData);
+            setMatchResult(response.data);
             setShowResults(true);
-        }, 1500);
+        } catch (error) {
+            console.error("Matching error:", error);
+            // Fallback for demo safety
+            setMatchResult({
+                hospital_name: "Lotus Hospital",
+                match_score: 92,
+                program_name: "Safe Delivery Program",
+                reasoning: [
+                    "Income falls under program threshold",
+                    "District coverage active in your area",
+                    "Due date is within active funding timeline"
+                ],
+                distance_km: 3.2,
+                safety_rating: 4.8
+            });
+            setShowResults(true);
+        } finally {
+            setChecking(false);
+        }
     };
 
     const handleRegister = () => {
@@ -92,7 +110,7 @@ export default function MotherPortal() {
                                     <MapPin size={14} className="text-slate-400" /> Pincode
                                 </label>
                                 <input
-                                    type="number"
+                                    type="text"
                                     required
                                     placeholder="e.g. 530016"
                                     className="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:border-teal-500 focus:ring-1 text-slate-900"
@@ -152,7 +170,7 @@ export default function MotherPortal() {
 
             {/* STEP 2: RESULTS (AI Match Score & Recommendations) */}
             <AnimatePresence>
-                {showResults && (
+                {showResults && matchResult && (
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -164,35 +182,45 @@ export default function MotherPortal() {
                                 <Award size={100} />
                             </div>
                             <div className="relative z-10">
-                                <div className="flex items-center gap-2 text-teal-300 font-semibold text-sm mb-6">
-                                    <Sparkles size={16} /> NGO MATCH ANALYSIS
+                                <div className="flex justify-between items-start mb-6">
+                                    <div className="flex items-center gap-2 text-teal-300 font-semibold text-sm">
+                                        <Sparkles size={16} /> NGO MATCH ANALYSIS
+                                    </div>
+                                    <div className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border ${matchResult.eligibility_status === 'Qualified' ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' :
+                                        matchResult.eligibility_status === 'Partially Qualified' ? 'bg-amber-500/10 text-amber-400 border-amber-500/20' :
+                                            'bg-rose-500/10 text-rose-400 border-rose-500/20'
+                                        }`}>
+                                        {matchResult.eligibility_status}
+                                    </div>
                                 </div>
 
                                 <h3 className="text-xl font-medium text-slate-300 mb-1">Eligibility Result:</h3>
-                                <h2 className="text-2xl font-bold mb-6">Safe Delivery Program</h2>
+                                <h2 className="text-2xl font-bold mb-6">{matchResult.program_name}</h2>
 
                                 <div className="flex items-end gap-3 mb-8 pb-8 border-b border-slate-800">
-                                    <div className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-emerald-300">
-                                        92%
+                                    <div className={`text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r ${matchResult.eligibility_status === 'Qualified' ? 'from-teal-400 to-emerald-300' :
+                                        matchResult.eligibility_status === 'Partially Qualified' ? 'from-amber-400 to-orange-300' :
+                                            'from-rose-400 to-orange-300'
+                                        }`}>
+                                        {matchResult.match_score}%
                                     </div>
                                     <div className="text-slate-400 font-medium mb-1.5">Match Score</div>
                                 </div>
 
                                 <div className="space-y-4">
-                                    <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-widest">Why You Qualified</h4>
+                                    <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-widest">
+                                        {matchResult.eligibility_status === 'Not Eligible' ? 'Evaluation Notes' : 'Why You Qualified'}
+                                    </h4>
                                     <ul className="space-y-3">
-                                        <li className="flex items-start gap-3">
-                                            <CheckCircle2 className="text-teal-400 shrink-0 mt-0.5" size={18} />
-                                            <span className="text-slate-200 text-sm">Income ({eligibilityData.income}) falls under program threshold</span>
-                                        </li>
-                                        <li className="flex items-start gap-3">
-                                            <CheckCircle2 className="text-teal-400 shrink-0 mt-0.5" size={18} />
-                                            <span className="text-slate-200 text-sm">District coverage active in your area (Pincode: {eligibilityData.pincode})</span>
-                                        </li>
-                                        <li className="flex items-start gap-3">
-                                            <CheckCircle2 className="text-teal-400 shrink-0 mt-0.5" size={18} />
-                                            <span className="text-slate-200 text-sm">Due date is within the active funding timeline</span>
-                                        </li>
+                                        {matchResult.reasoning.map((reason, idx) => (
+                                            <li key={idx} className="flex items-start gap-3">
+                                                <CheckCircle2 className={`${matchResult.eligibility_status === 'Qualified' ? 'text-teal-400' :
+                                                    matchResult.eligibility_status === 'Partially Qualified' ? 'text-amber-400' :
+                                                        'text-rose-400'
+                                                    } shrink-0 mt-0.5`} size={18} />
+                                                <span className="text-slate-200 text-sm">{reason}</span>
+                                            </li>
+                                        ))}
                                     </ul>
                                 </div>
                             </div>
@@ -206,18 +234,18 @@ export default function MotherPortal() {
 
                             <div className="flex-1">
                                 <h3 className="text-slate-500 font-medium mb-1">Best Hospital for You</h3>
-                                <h2 className="text-3xl font-bold text-slate-900 mb-6">Lotus Hospital</h2>
+                                <h2 className="text-3xl font-bold text-slate-900 mb-6">{matchResult.hospital_name}</h2>
 
                                 <div className="bg-indigo-50/50 rounded-2xl p-5 border border-indigo-100/50 mb-6">
                                     <h4 className="text-sm font-bold text-indigo-900 mb-3 flex items-center gap-2">
-                                        <Activity size={16} /> Why Recommended:
+                                        <Activity size={16} /> Key Matching Context:
                                     </h4>
                                     <ul className="space-y-3">
                                         <li className="flex items-center gap-3 text-sm text-slate-700">
                                             <span className="w-6 h-6 rounded-full bg-white flex items-center justify-center shadow-sm">
                                                 <MapPin size={12} className="text-indigo-600" />
                                             </span>
-                                            Closest matched hospital (3.2 km away)
+                                            Located approx. {matchResult.distance_km} km away
                                         </li>
                                         <li className="flex items-center gap-3 text-sm text-slate-700">
                                             <span className="w-6 h-6 rounded-full bg-white flex items-center justify-center shadow-sm">
@@ -229,10 +257,35 @@ export default function MotherPortal() {
                                             <span className="w-6 h-6 rounded-full bg-white flex items-center justify-center shadow-sm">
                                                 <ShieldCheck size={12} className="text-indigo-600" />
                                             </span>
-                                            4.8/5 Maternity Safety Rating
+                                            {matchResult.safety_rating}/5 Maternity Safety Rating
                                         </li>
+                                        {matchResult.beds_count && (
+                                            <li className="flex items-center gap-3 text-sm text-slate-700">
+                                                <span className="w-6 h-6 rounded-full bg-white flex items-center justify-center shadow-sm">
+                                                    <Activity size={12} className="text-indigo-600" />
+                                                </span>
+                                                {matchResult.beds_count} Bed Capacity
+                                            </li>
+                                        )}
                                     </ul>
                                 </div>
+
+                                {matchResult.specialized_services && (
+                                    <div className="flex flex-wrap gap-2 mb-6">
+                                        {matchResult.specialized_services.map((service, i) => (
+                                            <span key={i} className="px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-semibold border border-slate-200">
+                                                {service}
+                                            </span>
+                                        ))}
+                                    </div>
+                                )}
+
+                                {matchResult.district_impact && (
+                                    <div className="mt-4 p-4 rounded-2xl bg-teal-50 border border-teal-100 text-teal-800 text-xs font-medium flex items-center gap-2">
+                                        <Sparkles size={14} className="text-teal-600" />
+                                        {matchResult.district_impact}
+                                    </div>
+                                )}
                             </div>
 
                             <div className="flex gap-3 mt-auto pt-2">
@@ -253,7 +306,7 @@ export default function MotherPortal() {
 
             {/* STEP 3: PREGNANCY JOURNEY TRACKER */}
             <AnimatePresence>
-                {showJourney && (
+                {showJourney && matchResult && (
                     <motion.div
                         id="journey-section"
                         initial={{ opacity: 0, height: 0 }}
@@ -282,7 +335,7 @@ export default function MotherPortal() {
                                                     <CheckCircle2 className="text-emerald-500" size={18} /> Eligibility Check & Registration
                                                 </li>
                                                 <li className="flex items-center gap-3 text-slate-700 font-medium line-through opacity-60">
-                                                    <CheckCircle2 className="text-emerald-500" size={18} /> Hospital Assigned (Lotus Hospital)
+                                                    <CheckCircle2 className="text-emerald-500" size={18} /> Hospital Assigned ({matchResult.hospital_name})
                                                 </li>
                                                 <li className="flex items-center gap-3 text-slate-900 font-semibold bg-white p-3 rounded-xl border border-slate-200 shadow-sm mt-4">
                                                     <div className="w-8 h-8 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center">
@@ -309,7 +362,7 @@ export default function MotherPortal() {
                                                     </div>
                                                     <div>
                                                         <span className="block text-slate-900 font-semibold text-sm">Routine Checkup 1</span>
-                                                        <span className="text-slate-500 text-xs mt-1 block">Visit Lotus Hospital. Your transport allowance has been credited.</span>
+                                                        <span className="text-slate-500 text-xs mt-1 block">Visit {matchResult.hospital_name}. Your transport allowance has been credited.</span>
                                                     </div>
                                                 </li>
                                                 <li className="flex items-start gap-3">

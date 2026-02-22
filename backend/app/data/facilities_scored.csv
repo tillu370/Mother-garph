@@ -1,0 +1,201 @@
+name,type,district,lat,lon,services_text,beds,capability_score
+Facility_1,PHC,Guntur,15.243685,79.759128,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",6,100.0
+Facility_2,CHC,Warangal,17.594433,78.384796,Runs 24x7 emergency obstetric care with referral services.,30,0.0
+Facility_3,Medical College,Kurnool,17.26684,80.777117,"Provides prenatal checkups, postnatal care, and immunization drives.",300,0.0
+Facility_4,Medical College,Nizamabad,16.010265,80.317122,"Provides OB-GYN services, emergency care, and community health camps.",300,100.0
+Facility_5,Medical College,Nellore,18.263616,78.108745,Runs 24x7 emergency obstetric care with referral services.,300,0.0
+Facility_6,PHC,Nellore,15.775239,80.155124,Runs 24x7 emergency obstetric care with referral services.,6,0.0
+Facility_7,PHC,Hyderabad,18.41958,80.745629,"Provides OB-GYN services, emergency care, and community health camps.",6,100.0
+Facility_8,PHC,Guntur,17.533092,78.818947,Conducts high-risk pregnancy monitoring and telemedicine consultations.,6,100.0
+Facility_9,Medical College,Warangal,15.303402,79.784993,Runs 24x7 emergency obstetric care with referral services.,300,0.0
+Facility_10,PHC,Hyderabad,16.713505,81.310642,"Provides prenatal checkups, postnatal care, and immunization drives.",6,0.0
+Facility_11,CHC,Nellore,15.204847,79.172658,"Provides prenatal checkups, postnatal care, and immunization drives.",30,0.0
+Facility_12,PHC,Guntur,16.894779,78.234948,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",6,100.0
+Facility_13,Medical College,Khammam,15.66925,81.334377,Runs 24x7 emergency obstetric care with referral services.,300,0.0
+Facility_14,PHC,Warangal,17.500725,78.026557,Runs 24x7 emergency obstetric care with referral services.,6,0.0
+Facility_15,Medical College,Kurnool,17.741575,80.398421,Conducts high-risk pregnancy monitoring and telemedicine consultations.,300,100.0
+Facility_16,PHC,Visakhapatnam,16.521379,78.1908,"Provides OB-GYN services, emergency care, and community health camps.",6,100.0
+Facility_17,Hospital,Warangal,18.206508,79.466089,"Provides OB-GYN services, emergency care, and community health camps.",150,100.0
+Facility_18,Hospital,Nellore,17.33348,78.321313,"Provides OB-GYN services, emergency care, and community health camps.",150,100.0
+Facility_19,CHC,Visakhapatnam,16.410532,78.162665,"Provides OB-GYN services, emergency care, and community health camps.",30,100.0
+Facility_20,Hospital,Karimnagar,17.896712,78.227028,Runs 24x7 emergency obstetric care with referral services.,150,0.0
+Facility_21,Medical College,Hyderabad,17.21368,78.994402,Conducts high-risk pregnancy monitoring and telemedicine consultations.,300,100.0
+Facility_22,Hospital,Khammam,16.243071,80.526099,Conducts high-risk pregnancy monitoring and telemedicine consultations.,150,100.0
+Facility_23,PHC,Khammam,17.857756,79.728882,"Provides OB-GYN services, emergency care, and community health camps.",6,100.0
+Facility_24,CHC,Kurnool,17.90717,78.430438,"Provides OB-GYN services, emergency care, and community health camps.",30,100.0
+Facility_25,Hospital,Visakhapatnam,16.328075,78.958115,"Provides OB-GYN services, emergency care, and community health camps.",150,100.0
+Facility_26,Medical College,Khammam,15.555451,80.446956,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",300,100.0
+Facility_27,Medical College,Karimnagar,16.918403,81.58232,Conducts high-risk pregnancy monitoring and telemedicine consultations.,300,100.0
+Facility_28,PHC,Guntur,18.238442,81.486539,"Provides OB-GYN services, emergency care, and community health camps.",6,100.0
+Facility_29,CHC,Nizamabad,17.34263,81.761034,Runs 24x7 emergency obstetric care with referral services.,30,0.0
+Facility_30,Hospital,Guntur,16.951632,80.035132,Conducts high-risk pregnancy monitoring and telemedicine consultations.,150,100.0
+Facility_31,CHC,Khammam,16.317718,78.661376,"Provides OB-GYN services, emergency care, and community health camps.",30,100.0
+Facility_32,Hospital,Nizamabad,17.219823,79.658301,"Provides OB-GYN services, emergency care, and community health camps.",150,100.0
+Facility_33,CHC,Khammam,18.221625,78.074751,Conducts high-risk pregnancy monitoring and telemedicine consultations.,30,99.0
+Facility_34,Medical College,Warangal,15.573277,80.31579,"Provides prenatal checkups, postnatal care, and immunization drives.",300,0.0
+Facility_35,Medical College,Khammam,16.541394,81.50619,Runs 24x7 emergency obstetric care with referral services.,300,0.0
+Facility_36,PHC,Guntur,17.93383,81.496066,"Provides prenatal checkups, postnatal care, and immunization drives.",6,0.0
+Facility_37,Hospital,Kurnool,16.191898,79.385101,"Provides prenatal checkups, postnatal care, and immunization drives.",150,0.0
+Facility_38,PHC,Hyderabad,15.526723,79.09673,Runs 24x7 emergency obstetric care with referral services.,6,0.0
+Facility_39,CHC,Khammam,16.42595,80.107652,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",30,100.0
+Facility_40,Medical College,Nellore,15.146906,80.486574,"Provides OB-GYN services, emergency care, and community health camps.",300,100.0
+Facility_41,PHC,Visakhapatnam,16.260012,78.302106,"Provides prenatal checkups, postnatal care, and immunization drives.",6,0.0
+Facility_42,CHC,Karimnagar,16.371225,80.387744,"Provides prenatal checkups, postnatal care, and immunization drives.",30,0.0
+Facility_43,Medical College,Karimnagar,15.113159,80.76962,"Provides OB-GYN services, emergency care, and community health camps.",300,100.0
+Facility_44,PHC,Nellore,17.951218,78.554349,Runs 24x7 emergency obstetric care with referral services.,6,0.0
+Facility_45,PHC,Visakhapatnam,17.92495,80.625897,"Provides prenatal checkups, postnatal care, and immunization drives.",6,0.0
+Facility_46,Medical College,Guntur,16.617728,79.806755,"Provides prenatal checkups, postnatal care, and immunization drives.",300,0.0
+Facility_47,Hospital,Guntur,15.154855,78.917508,"Provides OB-GYN services, emergency care, and community health camps.",150,100.0
+Facility_48,PHC,Karimnagar,17.363854,78.704916,"Provides OB-GYN services, emergency care, and community health camps.",6,100.0
+Facility_49,CHC,Karimnagar,16.870189,80.990028,"Provides OB-GYN services, emergency care, and community health camps.",30,100.0
+Facility_50,CHC,Kurnool,17.98426,81.928166,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",30,100.0
+Facility_51,Medical College,Nellore,17.553083,79.681444,"Provides OB-GYN services, emergency care, and community health camps.",300,100.0
+Facility_52,PHC,Khammam,18.098419,78.92354,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",6,100.0
+Facility_53,Medical College,Karimnagar,17.732874,80.884862,"Provides prenatal checkups, postnatal care, and immunization drives.",300,0.0
+Facility_54,CHC,Nizamabad,16.710683,79.156264,Runs 24x7 emergency obstetric care with referral services.,30,0.0
+Facility_55,Hospital,Guntur,15.382698,79.483306,"Provides prenatal checkups, postnatal care, and immunization drives.",150,0.0
+Facility_56,Medical College,Eluru,18.014752,79.034603,Conducts high-risk pregnancy monitoring and telemedicine consultations.,300,100.0
+Facility_57,Medical College,Visakhapatnam,18.106561,78.822008,Runs 24x7 emergency obstetric care with referral services.,300,0.0
+Facility_58,CHC,Warangal,17.462462,79.315482,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",30,100.0
+Facility_59,Medical College,Hyderabad,16.534757,79.962122,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",300,100.0
+Facility_60,PHC,Visakhapatnam,17.032813,78.206557,"Provides OB-GYN services, emergency care, and community health camps.",6,100.0
+Facility_61,Medical College,Nizamabad,16.152868,78.994012,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",300,100.0
+Facility_62,Medical College,Kurnool,17.335843,80.862863,Runs 24x7 emergency obstetric care with referral services.,300,0.0
+Facility_63,Medical College,Guntur,15.870961,78.446267,"Provides prenatal checkups, postnatal care, and immunization drives.",300,0.0
+Facility_64,Hospital,Eluru,16.723559,81.809142,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",150,100.0
+Facility_65,CHC,Karimnagar,17.089863,79.877597,"Provides OB-GYN services, emergency care, and community health camps.",30,100.0
+Facility_66,Hospital,Hyderabad,17.242427,78.237656,Conducts high-risk pregnancy monitoring and telemedicine consultations.,150,100.0
+Facility_67,Medical College,Khammam,15.97486,79.735678,Runs 24x7 emergency obstetric care with referral services.,300,0.0
+Facility_68,Medical College,Hyderabad,15.628886,79.337484,"Provides OB-GYN services, emergency care, and community health camps.",300,100.0
+Facility_69,Hospital,Karimnagar,16.431017,79.95638,Conducts high-risk pregnancy monitoring and telemedicine consultations.,150,100.0
+Facility_70,CHC,Hyderabad,18.063785,80.370305,Runs 24x7 emergency obstetric care with referral services.,30,0.0
+Facility_71,Medical College,Karimnagar,18.399006,80.732457,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",300,100.0
+Facility_72,Medical College,Khammam,15.142049,80.015023,"Provides prenatal checkups, postnatal care, and immunization drives.",300,0.0
+Facility_73,CHC,Kurnool,16.866044,81.776551,"Provides OB-GYN services, emergency care, and community health camps.",30,100.0
+Facility_74,Hospital,Khammam,17.116753,79.655076,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",150,100.0
+Facility_75,Hospital,Karimnagar,18.308661,78.293345,Runs 24x7 emergency obstetric care with referral services.,150,0.0
+Facility_76,CHC,Khammam,16.629407,80.829182,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",30,100.0
+Facility_77,Hospital,Kurnool,16.340794,80.101978,"Provides prenatal checkups, postnatal care, and immunization drives.",150,0.0
+Facility_78,CHC,Hyderabad,17.712491,81.363252,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",30,100.0
+Facility_79,CHC,Warangal,17.482561,80.083759,Runs 24x7 emergency obstetric care with referral services.,30,0.0
+Facility_80,PHC,Karimnagar,17.018634,81.741042,"Provides OB-GYN services, emergency care, and community health camps.",6,100.0
+Facility_81,Hospital,Eluru,17.128568,81.443489,Runs 24x7 emergency obstetric care with referral services.,150,0.0
+Facility_82,PHC,Nellore,17.434191,80.141311,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",6,100.0
+Facility_83,CHC,Nellore,18.205733,81.633194,"Provides OB-GYN services, emergency care, and community health camps.",30,100.0
+Facility_84,Medical College,Visakhapatnam,15.410324,78.753467,"Provides prenatal checkups, postnatal care, and immunization drives.",300,0.0
+Facility_85,PHC,Eluru,16.541539,79.332312,"Provides prenatal checkups, postnatal care, and immunization drives.",6,0.0
+Facility_86,Medical College,Karimnagar,15.606737,79.301058,Runs 24x7 emergency obstetric care with referral services.,300,0.0
+Facility_87,PHC,Kurnool,17.008105,80.462237,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",6,100.0
+Facility_88,CHC,Warangal,16.923528,79.672476,Runs 24x7 emergency obstetric care with referral services.,30,0.0
+Facility_89,PHC,Khammam,16.787916,81.338199,"Provides prenatal checkups, postnatal care, and immunization drives.",6,0.0
+Facility_90,Medical College,Hyderabad,15.486883,78.826024,"Provides prenatal checkups, postnatal care, and immunization drives.",300,0.0
+Facility_91,PHC,Hyderabad,17.342936,81.027712,Runs 24x7 emergency obstetric care with referral services.,6,0.0
+Facility_92,CHC,Nizamabad,17.096243,79.801028,"Provides prenatal checkups, postnatal care, and immunization drives.",30,0.0
+Facility_93,Medical College,Kurnool,16.036961,78.346394,"Provides prenatal checkups, postnatal care, and immunization drives.",300,0.0
+Facility_94,Hospital,Kurnool,17.152828,80.918299,"Provides OB-GYN services, emergency care, and community health camps.",150,100.0
+Facility_95,Medical College,Visakhapatnam,18.190927,79.200368,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",300,100.0
+Facility_96,Hospital,Eluru,17.55823,80.167451,Runs 24x7 emergency obstetric care with referral services.,150,0.0
+Facility_97,CHC,Visakhapatnam,17.370267,79.599964,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",30,100.0
+Facility_98,Medical College,Eluru,17.31209,81.795719,"Provides OB-GYN services, emergency care, and community health camps.",300,100.0
+Facility_99,CHC,Eluru,17.422541,79.059968,Conducts high-risk pregnancy monitoring and telemedicine consultations.,30,99.0
+Facility_100,PHC,Guntur,17.949939,78.334099,Conducts high-risk pregnancy monitoring and telemedicine consultations.,6,100.0
+Facility_101,CHC,Nellore,15.619165,81.767736,"Provides OB-GYN services, emergency care, and community health camps.",30,100.0
+Facility_102,Medical College,Nizamabad,18.323257,81.173276,Runs 24x7 emergency obstetric care with referral services.,300,0.0
+Facility_103,Medical College,Eluru,16.693871,80.486056,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",300,100.0
+Facility_104,Medical College,Visakhapatnam,18.309089,81.233334,Conducts high-risk pregnancy monitoring and telemedicine consultations.,300,100.0
+Facility_105,Hospital,Warangal,16.987151,79.171748,Conducts high-risk pregnancy monitoring and telemedicine consultations.,150,100.0
+Facility_106,Medical College,Khammam,18.03621,79.138471,Runs 24x7 emergency obstetric care with referral services.,300,0.0
+Facility_107,Hospital,Nizamabad,18.016129,78.311647,"Provides OB-GYN services, emergency care, and community health camps.",150,100.0
+Facility_108,Hospital,Nellore,18.255883,80.053301,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",150,100.0
+Facility_109,Medical College,Nizamabad,15.531796,79.511305,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",300,100.0
+Facility_110,PHC,Kurnool,16.284145,81.314109,Runs 24x7 emergency obstetric care with referral services.,6,0.0
+Facility_111,CHC,Karimnagar,16.326183,79.719969,"Provides prenatal checkups, postnatal care, and immunization drives.",30,0.0
+Facility_112,CHC,Eluru,18.202389,79.423268,"Provides OB-GYN services, emergency care, and community health camps.",30,100.0
+Facility_113,Hospital,Visakhapatnam,18.033089,81.024901,Conducts high-risk pregnancy monitoring and telemedicine consultations.,150,100.0
+Facility_114,Medical College,Nellore,16.911257,81.372107,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",300,100.0
+Facility_115,CHC,Warangal,17.97548,78.184507,Runs 24x7 emergency obstetric care with referral services.,30,0.0
+Facility_116,CHC,Khammam,18.481541,80.157947,"Provides prenatal checkups, postnatal care, and immunization drives.",30,0.0
+Facility_117,PHC,Nizamabad,18.324177,78.984454,Conducts high-risk pregnancy monitoring and telemedicine consultations.,6,100.0
+Facility_118,CHC,Nellore,16.790195,80.369592,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",30,100.0
+Facility_119,PHC,Eluru,16.372463,80.080428,"Provides prenatal checkups, postnatal care, and immunization drives.",6,0.0
+Facility_120,Hospital,Kurnool,15.037814,78.437951,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",150,100.0
+Facility_121,Medical College,Karimnagar,17.196696,80.56865,"Provides prenatal checkups, postnatal care, and immunization drives.",300,0.0
+Facility_122,CHC,Nellore,16.279453,80.998504,Runs 24x7 emergency obstetric care with referral services.,30,0.0
+Facility_123,Hospital,Warangal,17.603472,81.709204,Conducts high-risk pregnancy monitoring and telemedicine consultations.,150,100.0
+Facility_124,Hospital,Eluru,17.628615,79.200726,Conducts high-risk pregnancy monitoring and telemedicine consultations.,150,100.0
+Facility_125,Hospital,Nellore,18.297789,78.412575,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",150,100.0
+Facility_126,PHC,Eluru,16.948714,81.140484,"Provides OB-GYN services, emergency care, and community health camps.",6,100.0
+Facility_127,PHC,Visakhapatnam,16.053239,81.20484,"Provides prenatal checkups, postnatal care, and immunization drives.",6,0.0
+Facility_128,Hospital,Warangal,17.937622,81.34213,"Provides prenatal checkups, postnatal care, and immunization drives.",150,0.0
+Facility_129,CHC,Kurnool,15.780591,80.138995,"Provides prenatal checkups, postnatal care, and immunization drives.",30,0.0
+Facility_130,PHC,Nizamabad,17.382801,79.958457,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",6,100.0
+Facility_131,PHC,Hyderabad,18.079263,79.806022,"Provides prenatal checkups, postnatal care, and immunization drives.",6,0.0
+Facility_132,Medical College,Warangal,16.297016,80.51901,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",300,100.0
+Facility_133,Medical College,Karimnagar,15.817998,81.832731,"Provides prenatal checkups, postnatal care, and immunization drives.",300,0.0
+Facility_134,PHC,Warangal,16.680166,78.03379,Runs 24x7 emergency obstetric care with referral services.,6,0.0
+Facility_135,Medical College,Kurnool,17.563592,80.162583,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",300,100.0
+Facility_136,Medical College,Nellore,17.040336,81.673401,Conducts high-risk pregnancy monitoring and telemedicine consultations.,300,100.0
+Facility_137,Medical College,Khammam,18.155606,80.748276,Conducts high-risk pregnancy monitoring and telemedicine consultations.,300,100.0
+Facility_138,Hospital,Guntur,15.871941,79.368892,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",150,100.0
+Facility_139,PHC,Nizamabad,16.260003,80.729142,"Provides prenatal checkups, postnatal care, and immunization drives.",6,0.0
+Facility_140,Hospital,Guntur,16.874904,79.355265,Conducts high-risk pregnancy monitoring and telemedicine consultations.,150,100.0
+Facility_141,PHC,Nizamabad,16.375449,79.133502,"Provides prenatal checkups, postnatal care, and immunization drives.",6,0.0
+Facility_142,PHC,Eluru,16.114234,80.714321,Conducts high-risk pregnancy monitoring and telemedicine consultations.,6,100.0
+Facility_143,Medical College,Karimnagar,15.631889,81.122715,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",300,100.0
+Facility_144,Hospital,Karimnagar,17.876307,81.05947,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",150,100.0
+Facility_145,Hospital,Karimnagar,16.288538,79.101422,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",150,100.0
+Facility_146,CHC,Karimnagar,16.413718,80.88095,"Provides prenatal checkups, postnatal care, and immunization drives.",30,0.0
+Facility_147,Medical College,Khammam,15.8309,78.893231,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",300,100.0
+Facility_148,CHC,Hyderabad,17.261104,79.507808,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",30,100.0
+Facility_149,PHC,Visakhapatnam,18.066727,78.312297,Conducts high-risk pregnancy monitoring and telemedicine consultations.,6,100.0
+Facility_150,Medical College,Warangal,17.119748,79.156788,Runs 24x7 emergency obstetric care with referral services.,300,0.0
+Facility_151,CHC,Guntur,15.71278,81.804045,Runs 24x7 emergency obstetric care with referral services.,30,0.0
+Facility_152,Medical College,Nellore,17.128788,80.613968,Conducts high-risk pregnancy monitoring and telemedicine consultations.,300,100.0
+Facility_153,Medical College,Nellore,15.378521,78.088484,"Provides prenatal checkups, postnatal care, and immunization drives.",300,0.0
+Facility_154,Hospital,Eluru,16.348408,78.306869,"Provides prenatal checkups, postnatal care, and immunization drives.",150,0.0
+Facility_155,Medical College,Eluru,16.642042,79.989696,Conducts high-risk pregnancy monitoring and telemedicine consultations.,300,100.0
+Facility_156,PHC,Visakhapatnam,15.279168,80.430786,"Provides OB-GYN services, emergency care, and community health camps.",6,100.0
+Facility_157,CHC,Kurnool,16.894406,80.421717,"Provides OB-GYN services, emergency care, and community health camps.",30,100.0
+Facility_158,PHC,Nellore,18.019044,78.50195,"Provides prenatal checkups, postnatal care, and immunization drives.",6,0.0
+Facility_159,CHC,Warangal,15.783438,81.953381,"Provides prenatal checkups, postnatal care, and immunization drives.",30,0.0
+Facility_160,Hospital,Hyderabad,17.993158,79.093368,Runs 24x7 emergency obstetric care with referral services.,150,0.0
+Facility_161,PHC,Karimnagar,16.474695,80.576186,Conducts high-risk pregnancy monitoring and telemedicine consultations.,6,100.0
+Facility_162,Hospital,Khammam,16.676996,78.514234,"Provides prenatal checkups, postnatal care, and immunization drives.",150,0.0
+Facility_163,Hospital,Guntur,16.525193,80.919421,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",150,100.0
+Facility_164,Hospital,Warangal,18.143394,78.914302,Runs 24x7 emergency obstetric care with referral services.,150,0.0
+Facility_165,Medical College,Khammam,17.551717,78.220511,Runs 24x7 emergency obstetric care with referral services.,300,0.0
+Facility_166,Medical College,Kurnool,15.785269,80.481421,"Provides prenatal checkups, postnatal care, and immunization drives.",300,0.0
+Facility_167,Hospital,Khammam,18.326387,79.285742,"Provides prenatal checkups, postnatal care, and immunization drives.",150,0.0
+Facility_168,PHC,Eluru,15.412549,78.267124,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",6,100.0
+Facility_169,PHC,Guntur,16.24393,79.430514,Runs 24x7 emergency obstetric care with referral services.,6,0.0
+Facility_170,Hospital,Nizamabad,17.380599,81.436807,Runs 24x7 emergency obstetric care with referral services.,150,0.0
+Facility_171,Medical College,Hyderabad,16.706383,81.436904,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",300,100.0
+Facility_172,PHC,Guntur,15.165439,78.849215,"Provides OB-GYN services, emergency care, and community health camps.",6,100.0
+Facility_173,PHC,Guntur,17.733817,80.624081,Conducts high-risk pregnancy monitoring and telemedicine consultations.,6,100.0
+Facility_174,Medical College,Visakhapatnam,17.887045,79.31087,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",300,100.0
+Facility_175,CHC,Nizamabad,18.42989,79.503173,Conducts high-risk pregnancy monitoring and telemedicine consultations.,30,99.0
+Facility_176,Medical College,Kurnool,17.680633,79.024271,"Provides prenatal checkups, postnatal care, and immunization drives.",300,0.0
+Facility_177,CHC,Eluru,15.551514,79.942245,"Provides prenatal checkups, postnatal care, and immunization drives.",30,0.0
+Facility_178,CHC,Karimnagar,17.776987,78.298945,"Provides OB-GYN services, emergency care, and community health camps.",30,100.0
+Facility_179,CHC,Eluru,18.102869,78.894652,"Provides OB-GYN services, emergency care, and community health camps.",30,100.0
+Facility_180,CHC,Kurnool,15.587285,79.57084,"Provides OB-GYN services, emergency care, and community health camps.",30,100.0
+Facility_181,Medical College,Kurnool,16.219488,81.400032,"Provides prenatal checkups, postnatal care, and immunization drives.",300,0.0
+Facility_182,Medical College,Khammam,18.223601,81.741275,"Provides prenatal checkups, postnatal care, and immunization drives.",300,0.0
+Facility_183,Medical College,Guntur,15.456165,81.750664,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",300,100.0
+Facility_184,CHC,Nellore,17.394118,79.670202,Runs 24x7 emergency obstetric care with referral services.,30,0.0
+Facility_185,PHC,Guntur,15.725771,79.518873,"Provides prenatal checkups, postnatal care, and immunization drives.",6,0.0
+Facility_186,PHC,Khammam,17.155262,80.946043,Conducts high-risk pregnancy monitoring and telemedicine consultations.,6,100.0
+Facility_187,CHC,Kurnool,18.488833,81.75146,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",30,100.0
+Facility_188,Medical College,Eluru,17.056479,81.649088,"Provides prenatal checkups, postnatal care, and immunization drives.",300,0.0
+Facility_189,Hospital,Karimnagar,16.075222,81.300113,Conducts high-risk pregnancy monitoring and telemedicine consultations.,150,100.0
+Facility_190,PHC,Visakhapatnam,15.838321,79.142328,Runs 24x7 emergency obstetric care with referral services.,6,0.0
+Facility_191,PHC,Warangal,15.282762,80.253744,"Provides OB-GYN services, emergency care, and community health camps.",6,100.0
+Facility_192,Hospital,Karimnagar,16.12172,80.43705,Conducts high-risk pregnancy monitoring and telemedicine consultations.,150,100.0
+Facility_193,PHC,Warangal,18.015504,79.136724,"Provides prenatal checkups, postnatal care, and immunization drives.",6,0.0
+Facility_194,PHC,Eluru,18.413985,78.793959,"Provides prenatal checkups, postnatal care, and immunization drives.",6,0.0
+Facility_195,PHC,Karimnagar,15.269689,78.744223,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",6,100.0
+Facility_196,Hospital,Nizamabad,17.251963,78.956994,"Provides prenatal checkups, postnatal care, and immunization drives.",150,0.0
+Facility_197,Hospital,Nizamabad,17.878436,79.224084,"Offers maternal delivery services, neonatal ICU, and vaccination programs.",150,100.0
+Facility_198,Hospital,Karimnagar,15.349041,79.66212,"Provides prenatal checkups, postnatal care, and immunization drives.",150,0.0
+Facility_199,Hospital,Nizamabad,16.976072,78.591393,Runs 24x7 emergency obstetric care with referral services.,150,0.0
+Facility_200,Hospital,Khammam,18.352252,80.147267,"Provides prenatal checkups, postnatal care, and immunization drives.",150,0.0

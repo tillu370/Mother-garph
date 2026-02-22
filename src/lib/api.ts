@@ -82,6 +82,19 @@ export interface DashboardStats {
   by_district: Record<string, number>;
 }
 
+export interface MotherMatchResult {
+  hospital_name: string;
+  match_score: number;
+  program_name: string;
+  eligibility_status: 'Qualified' | 'Partially Qualified' | 'Not Eligible' | 'Manual Review Required';
+  reasoning: string[];
+  distance_km: number;
+  safety_rating: number;
+  beds_count?: number;
+  specialized_services?: string[];
+  district_impact?: string;
+}
+
 // API calls
 export const apiService = {
   // Dashboard
@@ -138,4 +151,12 @@ export const apiService = {
 
   // Seed data
   seedData: () => api.post('/seed'),
+
+  // Mother Portal
+  matchMother: (data: {
+    name: string;
+    pincode: string;
+    income: string;
+    dueDate: string;
+  }) => api.post<MotherMatchResult>('/mother-match', data),
 };
